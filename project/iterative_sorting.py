@@ -29,9 +29,31 @@ def insertion_sort(arr):
 
 # STRETCH: implement the Bubble Sort function below
 def bubble_sort(arr):
+    sorting = True
+    while sorting:
+        sort_count = 0
+        for i in range(0, len(arr)-1):
+            if arr[i + 1] < arr[i]:
+                swap = arr[i]
+                arr[i] = arr[i + 1]
+                arr[i + 1] = swap
+                sort_count +=1
+        if sort_count == 0:
+            sorting = False
+
     return arr
+
 
 
 # STRETCH: implement the Count Sort function below
 def count_sort(arr, maximum=-1):
+
     return arr
+
+arr1 = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
+arr2 = []
+arr3 = [1, 5, -2, 4, 3]
+
+print(count_sort(arr1))
+print(count_sort(arr2))
+print(count_sort(arr3))
