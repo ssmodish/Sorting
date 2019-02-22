@@ -24,8 +24,8 @@ def merge( arrA, arrB ):
 ### recursive sorting function
 def merge_sort( arr ):
     if len( arr ) > 1:
-        left = merge_sort( arr[ 0 : len( arr ) / 2 ] )
-        right = merge_sort( arr[ len( arr ) / 2 : ] )
+        left = merge_sort( arr[ 0 : len( arr ) // 2 ] )
+        right = merge_sort( arr[ len( arr ) // 2 : ] )
         arr = merge( left, right )   # merge() defined later
     return arr
 
@@ -55,15 +55,17 @@ def quick_sort(arr, low, high):
     # and all numbers to the right are greater
     for i in range(low, high):
         if arr[i] < arr[high]:
-            swap = arr[i]
-            arr[i] = arr[marker]
-            arr[marker] = swap
+            # swap = arr[i]
+            # arr[i] = arr[marker]
+            # arr[marker] = swap
+            arr[marker], arr[i] = arr[i], arr[marker]
 
             marker += 1
 
-    swap = arr[high]
-    arr[high] = arr[marker]
-    arr[marker] = swap
+    # swap = arr[high]
+    # arr[high] = arr[marker]
+    # arr[marker] = swap
+    arr[marker], arr[high] = arr[high], arr[marker]
 
     # do the same for all of the other numbers in the array
     quick_sort(arr, low, marker - 1)
